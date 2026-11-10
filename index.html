@@ -25,6 +25,10 @@
       --sun: #fbbf24;
       --sun-soft: #fef3c7;
       --sun-deep: #b45309;
+      /* Warna Lavender untuk Kartu Reflektif */
+      --lavender: #a78bfa;
+      --lavender-soft: #ede9fe;
+      --lavender-deep: #6d28d9;
       --border: #d9ede3;
       --border-strong: #b7e0cc;
       --radius: 18px;
@@ -293,7 +297,7 @@
     }
     .section-head p { color: var(--muted); font-size: .95rem; }
 
-    /* ===== FEATURED PRODUCT ===== */
+    /* ===== FEATURED PRODUCT (RUANG JEDA) ===== */
     .featured {
       display: grid;
       grid-template-columns: 320px 1fr;
@@ -329,7 +333,6 @@
     }
     .featured-cover-inner { position: relative; z-index: 1; }
     
-    /* ==== GAYA UNTUK GAMBAR COVER BARU ==== */
     .book-cover-img {
       width: 100%;
       max-width: 260px;
@@ -366,9 +369,8 @@
       color: var(--accent-hover);
     }
     
-    /* ===== GAYA PILL EKSKLUSIF (INVESTASI DIRI) ===== */
     .pill.premium {
-      background: #fef3c7;     /* Soft Amber */
+      background: #fef3c7;
       border-color: #fde68a;
       color: #b45309;
       box-shadow: 0 2px 6px rgba(180, 83, 9, 0.1);
@@ -525,6 +527,141 @@
     }
     .btn-sample-link:hover { color: var(--accent-hover); gap: 8px; }
 
+    /* ===== KARTU REFLEKTIF (NEW SECTION) ===== */
+    .reflective-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--lavender);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      animation: fadeUp .6s ease both;
+    }
+
+    .reflective-cover {
+      position: relative;
+      background: linear-gradient(155deg, var(--lavender-soft) 0%, #ffffff 55%, #fce7f3 100%);
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      overflow: hidden;
+    }
+    
+    /* Mockup HP Tiruan CSS */
+    .phone-mockup {
+      width: 180px;
+      height: 360px;
+      background: #fff;
+      border-radius: 28px;
+      border: 6px solid #333;
+      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .phone-mockup::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 4px;
+      background: #333;
+      border-radius: 4px;
+    }
+    .phone-text {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #4c1d95;
+      line-height: 1.4;
+      z-index: 1;
+    }
+    .phone-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fdf4ff, #fae8ff);
+      z-index: 0;
+    }
+
+    .reflective-body {
+      padding: 32px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+    .reflective-body h3 {
+      font-size: 1.6rem;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--lavender-deep);
+    }
+    .reflective-body p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+    .reflective-body ul {
+      list-style: none;
+      margin: 4px 0 6px;
+      display: grid;
+      gap: 6px;
+    }
+    .reflective-body ul li {
+      font-size: .92rem;
+      color: var(--text);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .reflective-body ul li::before {
+      content: "✓";
+      color: var(--lavender-deep);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    
+    .pill.lavender {
+      background: var(--lavender-soft);
+      border-color: var(--lavender);
+      color: var(--lavender-deep);
+    }
+
+    .btn-buy-lavender {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--lavender), var(--lavender-deep));
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -.005em;
+      box-shadow: 0 14px 30px rgba(109, 40, 217, 0.25);
+      transition: transform .18s, box-shadow .18s;
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-buy-lavender:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(109, 40, 217, 0.35);
+    }
+
     /* ===== COMING SOON ===== */
     .coming-card {
       max-width: 960px;
@@ -663,7 +800,8 @@
       border: 1px solid var(--border);
       display: flex;
       gap: 14px;
-      align-items: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
       font-size: .88rem;
       color: var(--muted);
       line-height: 1.6;
@@ -673,11 +811,10 @@
     .roadmap strong { color: var(--text); }
     .roadmap span.sep { color: var(--border-strong); padding: 0 4px; }
     
-    /* Gaya untuk link di dalam roadmap */
-    .roadmap a {
+    .roadmap .normal-link {
       transition: color .15s;
     }
-    .roadmap a:hover {
+    .roadmap .normal-link:hover {
       color: var(--accent);
       text-decoration: underline;
     }
@@ -719,8 +856,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 860px) {
-      .featured { grid-template-columns: 1fr; }
-      .featured-cover { padding: 40px 20px; }
+      .featured, .reflective-card { grid-template-columns: 1fr; }
+      .featured-cover, .reflective-cover { padding: 40px 20px; }
     }
 
     @media (max-width: 640px) {
@@ -733,13 +870,13 @@
       .btn-hero-main { padding: 14px 28px; font-size: .95rem; width: 100%; max-width: 320px; }
       .hero-secondary-link { font-size: .8rem; }
 
-      .featured-body { padding: 24px 22px; }
-      .featured-body h3 { font-size: 1.45rem; }
+      .featured-body, .reflective-body { padding: 24px 22px; }
+      .featured-body h3, .reflective-body h3 { font-size: 1.45rem; }
 
       .price-new { font-size: 1.4rem; }
       .price-note { margin-left: 0; flex-basis: 100%; }
 
-      .btn-buy { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
+      .btn-buy, .btn-buy-lavender { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
 
       .coming-card, .app-card { padding: 22px 20px; }
       .coming-action, .app-action { width: 100%; justify-content: center; }
@@ -756,6 +893,7 @@
     .hero > .container { animation: fadeUp .6s ease both; }
     .coming-card { animation: fadeUp .5s ease both; animation-delay: .05s; }
     .app-card { animation: fadeUp .5s ease both; animation-delay: .1s; }
+    .reflective-card { animation: fadeUp .6s ease both; animation-delay: .1s; }
   </style>
 </head>
 <body>
@@ -820,7 +958,6 @@
 
         <div class="featured-cover">
           <div class="featured-cover-inner">
-            <!-- Gambar Cover Baru di sini -->
             <img src="cover-ruang-jeda.jpg" alt="Cover Ruang Jeda" class="book-cover-img" />
           </div>
         </div>
@@ -852,10 +989,6 @@
           </div>
 
           <div class="featured-actions">
-            <!--
-              TODO: Ganti href dengan URL checkout Midtrans saat aktif.
-              Interim sekarang: order via email (mailto).
-            -->
             <a class="btn-buy"
                href="mailto:admin.hidupselaras@gmail.com?subject=Pembelian%20Ruang%20Jeda%20-%20Rp%20150.000&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20ingin%20membeli%20Ruang%20Jeda.%0A%0ANama%3A%20%0AEmail%3A%20%0AMetode%20pembayaran%3A%20%28QRIS%2FGoPay%2FOVO%2FTransfer%29%0A%0ATerima%20kasih.">
               Beli Sekarang — Rp 150.000
@@ -873,36 +1006,102 @@
             <span>Pembaruan gratis selamanya</span>
           </div>
 
-          <!-- Tombol Spoiler/Preview -->
           <a href="ruangjedaspoiler.pdf" target="_blank" rel="noopener" class="btn-sample-link">
             Intip Isi Ruang Jeda →
           </a>
         </div>
 
       </article>
-<a href="https://anti-anxiety.pages.dev/" target="_blank" rel="noopener noreferrer"
-           class="hero-secondary-link">
-          Belum siap membeli? Coba ruang aman gratis kami
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
+
+      <a href="https://anti-anxiety.pages.dev/" target="_blank" rel="noopener noreferrer"
+         class="hero-secondary-link" style="display:flex; justify-content:center; margin-top: 16px;">
+        Belum siap membeli? Coba ruang aman gratis kami
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ KARTU REFLEKTIF (NEW PRODUCT) ============ -->
+  <section class="section" id="kartu-reflektif">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2><span class="dot" style="background: var(--lavender); box-shadow: 0 0 0 4px var(--lavender-soft);"></span>Pengingat Harian</h2>
+          <p>Ruang kecil untuk berhenti sejenak dan kembali terhubung dengan dirimu.</p>
+        </div>
+      </div>
+
+      <article class="reflective-card">
+        <div class="reflective-cover">
+          <!-- Mockup HP Tiruan -->
+          <div class="phone-mockup">
+            <div class="phone-bg"></div>
+            <div class="phone-text">
+              "Aku memilih merespons, bukan bereaksi."
+            </div>
+          </div>
+        </div>
+
+        <div class="reflective-body">
+          <div class="featured-tags">
+            <span class="pill lavender">Harga Peluncuran</span>
+            <span class="pill lavender">Produk Digital</span>
+          </div>
+
+          <h3>Kartu Reflektif: 52 Wallpaper Mindful Living</h3>
+          <p>
+            Bukan tentang memaksakan diri untuk selalu bahagia. Ini ruang kecil berisi 52 afirmasi dan refleksi untuk menemanimu berhenti sejenak, hadir, dan menerima segala emosi dengan sudut pandang yang lebih sadar.
+          </p>
+
+          <ul>
+            <li><strong>52 Kartu Reflektif (Format PNG)</strong> — Siap dipasang sebagai wallpaper HP.</li>
+            <li><strong>8 Tema Perjalanan Diri</strong> — Dari Awakening, Gratitude, hingga Inner Peace.</li>
+            <li><strong>Bebas Toxic Positivity</strong> — Kalimat jujur, membumi, dan menerima kenyataan.</li>
+            <li><strong>Akses Selamanya</strong> — File digital langsung diunduh setelah pembayaran.</li>
+          </ul>
+
+          <div class="price-block" style="background: linear-gradient(135deg, var(--lavender-soft), #ffffff); border-color: var(--lavender);">
+            <span class="price-old">Rp 25.000</span>
+            <span class="price-new" style="color: var(--lavender-deep);">Rp 10.000</span>
+            <span class="price-badge" style="background: linear-gradient(135deg, var(--lavender), var(--lavender-deep)); box-shadow: 0 4px 10px rgba(109, 40, 217, 0.3);">Hemat 60%</span>
+          </div>
+
+          <div class="featured-actions">
+            <a class="btn-buy-lavender"
+               href="mailto:admin.hidupselaras@gmail.com?subject=Pembelian%20Kartu%20Reflektif%20(52%20Wallpaper)%20-%20Rp%2010.000&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20ingin%20membeli%20Kartu%20Reflektif%20(52%20Wallpaper%20HP).%0A%0ANama%3A%20%0AEmail%3A%20%0AMetode%20pembayaran%3A%20%28QRIS%2FGoPay%2FOVO%2FTransfer%29%0A%0ATerima%20kasih.">
+              Dapatkan 52 Wallpaper — Rp 10.000
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="micro-trust">
+            <span>Akses seumur hidup</span>
+            <span>File PNG Resolusi Tinggi</span>
+            <span>Langsung Unduh</span>
+          </div>
+        </div>
+      </article>
+      
       <!-- ============ ROADMAP / SELANJUTNYA ============ -->
       <div class="roadmap">
         <span class="r-icon">🧭</span>
         <div>
           <strong>Selanjutnya:</strong>
-          <!-- Link untuk Kelas Privat -->
           <a class="private-action"
              href="mailto:admin.hidupselaras@gmail.com?subject=Tanya%20Info%20Bimbingan%20Privat%20-%20Sejati%20Store&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20tertarik%20dengan%20Bimbingan%20Privat%20(1-on-1).%20Bisa%20info%20ketersediaan%20jadwal%20dan%20investasinya%3F%0A%0ANama%3A%20%0AKondisi%20saat%20ini%3A%20%0A%0ATerima%20kasih.">
              [Bimbingan Privat] </a>
-          <br>Audio Afirmasi
           <span class="sep">·</span>
-          Jurnal Refleksi
+          <span class="normal-link">Audio Afirmasi</span>
           <span class="sep">·</span>
-          Kartu Afirmasi
-          <span class="sep">·</span>
+          <span class="normal-link">Jurnal Refleksi</span>
         </div>
       </div>
-
+      
     </div>
   </section>
 
