@@ -451,47 +451,72 @@
       font-weight: 500;
     }
 
-    /* ===== BUY BUTTON ===== */
+    /* ===== BUY BUTTON (HIJAU) ===== */
     .featured-actions {
       display: flex;
       gap: 10px;
       margin-top: 10px;
       flex-wrap: wrap;
     }
+    
     .btn-buy {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 16px 32px;
+      gap: 12px;
+      padding: 18px 32px; 
       border-radius: 14px;
       background: linear-gradient(135deg, var(--accent), #059669);
       color: #fff;
-      font-weight: 700;
-      font-size: 1.02rem;
+      font-weight: 800; 
+      font-size: 1.25rem; 
       letter-spacing: -.005em;
-      box-shadow: 0 14px 30px rgba(16,185,129,.38);
-      transition: transform .18s, box-shadow .18s;
+      transition: transform .18s ease;
       flex: 1;
       min-width: 220px;
       position: relative;
-      overflow: hidden;
+      z-index: 1; 
     }
+
+    /* Animasi Bernapas (Menggunakan pseudo-element) */
+    .btn-buy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: rgba(16, 185, 129, 0.4);
+      z-index: -1;
+      animation: breathe-glow 3s ease-in-out infinite;
+    }
+
+    /* Efek kilau (shimmer) */
     .btn-buy::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.18) 50%, transparent 70%);
+      border-radius: 14px;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.2) 50%, transparent 70%);
       transform: translateX(-100%);
       transition: transform .6s ease;
+      z-index: 0;
+      pointer-events: none;
     }
+
     .btn-buy:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(16,185,129,.45);
     }
+    
     .btn-buy:hover::after { transform: translateX(100%); }
-    .btn-buy svg { width: 18px; height: 18px; transition: transform .2s; }
-    .btn-buy:hover svg { transform: translateX(3px); }
+
+    /* Animasi Panah Looping */
+    .btn-buy svg { 
+      width: 50px; 
+      height: 50px; 
+      display: block; 
+      position: relative;
+      z-index: 2;
+      animation: panah-loop 2s ease-in-out infinite;
+    }
 
     .micro-trust {
       display: flex;
@@ -638,28 +663,38 @@
       color: var(--lavender-deep);
     }
 
+    /* ===== BUY BUTTON (LAVENDER) ===== */
     .btn-buy-lavender {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 16px 32px;
+      gap: 10px; /* Gap seperti awal */
+      padding: 16px 32px; /* Padding seperti awal */
       border-radius: 14px;
       background: linear-gradient(135deg, var(--lavender), var(--lavender-deep));
       color: #fff;
       font-weight: 700;
-      font-size: 1.02rem;
+      font-size: 1.02rem; /* Font size seperti awal */
       letter-spacing: -.005em;
-      box-shadow: 0 14px 30px rgba(109, 40, 217, 0.25);
+      box-shadow: 0 14px 30px rgba(109, 40, 217, 0.25); 
       transition: transform .18s, box-shadow .18s;
       flex: 1;
       min-width: 220px;
       position: relative;
       overflow: hidden;
     }
+
     .btn-buy-lavender:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 38px rgba(109, 40, 217, 0.35);
+    }
+
+    /* Panah Ukuran Awal + Animasi Looping */
+    .btn-buy-lavender svg {
+      width: 70px; /* Ukuran seperti awal */
+      height: 70px;
+      display: block;
+      animation: panah-loop 2s ease-in-out infinite;
     }
 
     /* ===== COMING SOON ===== */
@@ -876,7 +911,9 @@
       .price-new { font-size: 1.4rem; }
       .price-note { margin-left: 0; flex-basis: 100%; }
 
-      .btn-buy, .btn-buy-lavender { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
+      /* Ukuran tombol di mobile disesuaikan */
+      .btn-buy { padding: 16px 24px; font-size: 1.25rem; width: 100%; min-width: 0; }
+      .btn-buy-lavender { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
 
       .coming-card, .app-card { padding: 22px 20px; }
       .coming-action, .app-action { width: 100%; justify-content: center; }
@@ -894,6 +931,19 @@
     .coming-card { animation: fadeUp .5s ease both; animation-delay: .05s; }
     .app-card { animation: fadeUp .5s ease both; animation-delay: .1s; }
     .reflective-card { animation: fadeUp .6s ease both; animation-delay: .1s; }
+
+    /* Animasi Tombol Bernapas */
+    @keyframes breathe-glow {
+      0% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.04); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 0.5; }
+    }
+
+    /* Animasi Panah Looping (Maju-Mundur) */
+    @keyframes panah-loop {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(8px); }
+    }
   </style>
 </head>
 <body>
@@ -991,7 +1041,7 @@
           <div class="featured-actions">
             <a class="btn-buy"
                href="mailto:admin.hidupselaras@gmail.com?subject=Pembelian%20Ruang%20Jeda%20-%20Rp%20150.000&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20ingin%20membeli%20Ruang%20Jeda.%0A%0ANama%3A%20%0AEmail%3A%20%0AMetode%20pembayaran%3A%20%28QRIS%2FGoPay%2FOVO%2FTransfer%29%0A%0ATerima%20kasih.">
-              Dapatkan Sekarang
+              Mulai Perjalanan
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14"/>
@@ -1014,7 +1064,7 @@
 
       <a href="https://anti-anxiety.pages.dev/" target="_blank" rel="noopener noreferrer"
          class="hero-secondary-link" style="display:flex; justify-content:center; margin-top: 16px;">
-        Belum siap membeli? Coba ruang aman gratis kami
+        Belum siap? Coba ruang aman gratis kami
         <span class="arrow" aria-hidden="true">→</span>
       </a>
 
@@ -1127,7 +1177,7 @@
             Ingin jadi yang pertama tahu saat rilis?
           </p>
         </div>
-        <a class="coming-action" href="mailto:admin.hidupselaras@gmail.com">
+        <a class="coming-action" href="mailto:admin.hidupseclaras@gmail.com">
           Kabari Saya
         </a>
       </div>
