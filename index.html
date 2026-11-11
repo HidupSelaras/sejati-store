@@ -668,13 +668,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px; /* Gap seperti awal */
-      padding: 16px 32px; /* Padding seperti awal */
+      gap: 10px;
+      padding: 16px 32px;
       border-radius: 14px;
       background: linear-gradient(135deg, var(--lavender), var(--lavender-deep));
       color: #fff;
       font-weight: 700;
-      font-size: 1.02rem; /* Font size seperti awal */
+      font-size: 1.02rem;
       letter-spacing: -.005em;
       box-shadow: 0 14px 30px rgba(109, 40, 217, 0.25); 
       transition: transform .18s, box-shadow .18s;
@@ -691,7 +691,7 @@
 
     /* Panah Ukuran Awal + Animasi Looping */
     .btn-buy-lavender svg {
-      width: 70px; /* Ukuran seperti awal */
+      width: 70px;
       height: 70px;
       display: block;
       animation: panah-loop 2s ease-in-out infinite;
@@ -825,7 +825,7 @@
       box-shadow: 0 14px 30px rgba(16,185,129,.4);
     }
 
-    /* ===== ROADMAP ===== */
+    /* ===== ROADMAP (FIXED) ===== */
     .roadmap {
       max-width: 960px;
       margin: 26px auto 0;
@@ -835,7 +835,7 @@
       border: 1px solid var(--border);
       display: flex;
       gap: 14px;
-      align-items: center;
+      align-items: flex-start; /* Menjaga icon sejajar atas */
       flex-wrap: wrap;
       font-size: .88rem;
       color: var(--muted);
@@ -919,7 +919,9 @@
       .coming-action, .app-action { width: 100%; justify-content: center; }
 
       .about-card { padding: 22px; }
-      .roadmap { font-size: .82rem; }
+      
+      /* Roadmap di HP */
+      .roadmap { font-size: .82rem; align-items: flex-start; gap: 10px; }
     }
 
     /* ===== ANIMATION ===== */
@@ -1064,7 +1066,7 @@
 
       <a href="https://anti-anxiety.pages.dev/" target="_blank" rel="noopener noreferrer"
          class="hero-secondary-link" style="display:flex; justify-content:center; margin-top: 16px;">
-        Belum siap? Coba ruang aman gratis kami
+        Belum siap membeli? Coba ruang aman gratis kami
         <span class="arrow" aria-hidden="true">→</span>
       </a>
 
@@ -1139,8 +1141,8 @@
       <!-- ============ ROADMAP / SELANJUTNYA ============ -->
       <div class="roadmap">
         <span class="r-icon">🧭</span>
-        <div>
-          <strong>Selanjutnya:</strong>
+        <div style="flex: 1;">
+          <strong style="display: block; margin-bottom: 4px;">Selanjutnya:</strong>
           <a class="private-action"
              href="mailto:admin.hidupselaras@gmail.com?subject=Tanya%20Info%20Bimbingan%20Privat%20-%20Sejati%20Store&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20tertarik%20dengan%20Bimbingan%20Privat%20(1-on-1).%20Bisa%20info%20ketersediaan%20jadwal%20dan%20investasinya%3F%0A%0ANama%3A%20%0AKondisi%20saat%20ini%3A%20%0A%0ATerima%20kasih.">
              [Bimbingan Privat] </a>
