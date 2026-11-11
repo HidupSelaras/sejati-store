@@ -576,47 +576,26 @@
       padding: 32px 20px;
       overflow: hidden;
     }
-    
-    /* Mockup HP Tiruan CSS */
-    .phone-mockup {
-      width: 180px;
-      height: 360px;
-      background: #fff;
-      border-radius: 28px;
-      border: 6px solid #333;
-      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.2);
+
+    .reflective-cover-inner {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      overflow: hidden;
-    }
-    .phone-mockup::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 4px;
-      background: #333;
-      border-radius: 4px;
-    }
-    .phone-text {
-      font-family: 'Georgia', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: #4c1d95;
-      line-height: 1.4;
       z-index: 1;
+      width: 100%;
+      display: grid;
+      place-items: center;
     }
-    .phone-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #fdf4ff, #fae8ff);
-      z-index: 0;
+
+    /* Styling untuk Gambar Sampul Baru */
+    .reflective-book-cover {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .reflective-card:hover .reflective-book-cover {
+      transform: translateY(-5px) scale(1.02);
     }
 
     .reflective-body {
@@ -825,7 +804,7 @@
       box-shadow: 0 14px 30px rgba(16,185,129,.4);
     }
 
-    /* ===== ROADMAP (FIXED) ===== */
+    /* ===== ROADMAP ===== */
     .roadmap {
       max-width: 960px;
       margin: 26px auto 0;
@@ -835,7 +814,7 @@
       border: 1px solid var(--border);
       display: flex;
       gap: 14px;
-      align-items: flex-start; /* Menjaga icon sejajar atas */
+      align-items: flex-start;
       flex-wrap: wrap;
       font-size: .88rem;
       color: var(--muted);
@@ -1085,12 +1064,9 @@
 
       <article class="reflective-card">
         <div class="reflective-cover">
-          <!-- Mockup HP Tiruan -->
-          <div class="phone-mockup">
-            <div class="phone-bg"></div>
-            <div class="phone-text">
-              "Aku memilih merespons, bukan bereaksi."
-            </div>
+          <div class="reflective-cover-inner">
+            <!-- Memanggil gambar sampul wallpaper.png -->
+            <img src="wallpaper.png" alt="Sampul 52 Wallpaper Pengingat Diri" class="reflective-book-cover" />
           </div>
         </div>
 
@@ -1133,7 +1109,7 @@
 
           <div class="micro-trust">
             <span>Siap Pakai</span>
-            <span>Teman Perjalanan</span>
+            <span>Gambar Jernih QHD 2K</span>
             <a><b>Terkadang, satu kalimat sederhana bisa menjadi pengingat yang bermakna.</b></a>
           </div>
         </div>
