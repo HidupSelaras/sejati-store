@@ -410,7 +410,7 @@
     /* ===== PRICE BLOCK ===== */
     .price-block {
       display: flex;
-      flex-direction: column; /* Mengubah susunan menjadi vertikal agar teks turun */
+      flex-direction: column; 
       gap: 6px;
       margin: 6px 0 4px;
       padding: 14px 16px;
@@ -455,7 +455,6 @@
       font-size: .78rem;
       color: var(--muted);
       font-weight: 500;
-      /* margin-left: auto; DIHAPUS agar rata kiri */
     }
 
     /* ===== BUY BUTTON (HIJAU) ===== */
@@ -485,7 +484,6 @@
       z-index: 1; 
     }
 
-    /* Animasi Bernapas (Menggunakan pseudo-element) */
     .btn-buy::before {
       content: "";
       position: absolute;
@@ -496,7 +494,6 @@
       animation: breathe-glow 3s ease-in-out infinite;
     }
 
-    /* Efek kilau (shimmer) */
     .btn-buy::after {
       content: "";
       position: absolute;
@@ -515,7 +512,6 @@
     
     .btn-buy:hover::after { transform: translateX(100%); }
 
-    /* Animasi Panah Looping */
     .btn-buy svg { 
       width: 50px; 
       height: 50px; 
@@ -559,7 +555,7 @@
     }
     .btn-sample-link:hover { color: var(--accent-hover); gap: 8px; }
 
-    /* ===== KARTU REFLEKTIF (NEW SECTION) ===== */
+    /* ===== KARTU REFLEKTIF (LAVENDER) ===== */
     .reflective-card {
       display: grid;
       grid-template-columns: 320px 1fr;
@@ -592,7 +588,6 @@
       place-items: center;
     }
 
-    /* Styling untuk Gambar Sampul Baru */
     .reflective-book-cover {
       width: 100%;
       max-width: 260px;
@@ -649,7 +644,6 @@
       color: var(--lavender-deep);
     }
 
-    /* ===== BUY BUTTON (LAVENDER) ===== */
     .btn-buy-lavender {
       display: inline-flex;
       align-items: center;
@@ -675,8 +669,149 @@
       box-shadow: 0 18px 38px rgba(109, 40, 217, 0.35);
     }
 
-    /* Panah Ukuran Awal + Animasi Looping */
     .btn-buy-lavender svg {
+      width: 70px;
+      height: 70px;
+      display: block;
+      animation: panah-loop 2s ease-in-out infinite;
+    }
+
+    /* ===== AUDIO (SKY BLUE) ===== */
+    .audio-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--sky);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      animation: fadeUp .6s ease both;
+    }
+
+    .audio-cover {
+      position: relative;
+      background: linear-gradient(155deg, var(--sky-soft) 0%, #ffffff 55%, #e0f2fe 100%);
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+      overflow: hidden;
+    }
+
+    .audio-cover-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .audio-book-cover {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .audio-card:hover .audio-book-cover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .audio-body {
+      padding: 32px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+    .audio-body h3 {
+      font-size: 1.6rem;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--sky-deep);
+    }
+    .audio-body p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+    .audio-body ul {
+      list-style: none;
+      margin: 4px 0 6px;
+      display: grid;
+      gap: 6px;
+    }
+    .audio-body ul li {
+      font-size: .92rem;
+      color: var(--text);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .audio-body ul li::before {
+      content: "✓";
+      color: var(--sky-deep);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    
+    .pill.sky {
+      background: var(--sky-soft);
+      border-color: var(--sky);
+      color: var(--sky-deep);
+    }
+
+    /* Jadwal Audio */
+    .audio-schedule {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .audio-item {
+      background: var(--sky-soft);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--sky-deep);
+      border: 1px solid #bae6fd;
+    }
+    .audio-item strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .btn-buy-sky {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -.005em;
+      box-shadow: 0 14px 30px rgba(2, 132, 199, 0.25); 
+      transition: transform .18s, box-shadow .18s;
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-buy-sky:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-buy-sky svg {
       width: 70px;
       height: 70px;
       display: block;
@@ -877,8 +1012,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 860px) {
-      .featured, .reflective-card { grid-template-columns: 1fr; }
-      .featured-cover, .reflective-cover { padding: 40px 20px; }
+      .featured, .reflective-card, .audio-card { grid-template-columns: 1fr; }
+      .featured-cover, .reflective-cover, .audio-cover { padding: 40px 20px; }
     }
 
     @media (max-width: 640px) {
@@ -891,21 +1026,18 @@
       .btn-hero-main { padding: 14px 28px; font-size: .95rem; width: 100%; max-width: 320px; }
       .hero-secondary-link { font-size: .8rem; }
 
-      .featured-body, .reflective-body { padding: 24px 22px; }
-      .featured-body h3, .reflective-body h3 { font-size: 1.45rem; }
+      .featured-body, .reflective-body, .audio-body { padding: 24px 22px; }
+      .featured-body h3, .reflective-body h3, .audio-body h3 { font-size: 1.45rem; }
 
       .price-new { font-size: 1.4rem; }
       
-      /* Tombol di mobile disesuaikan */
       .btn-buy { padding: 16px 24px; font-size: 1.25rem; width: 100%; min-width: 0; }
-      .btn-buy-lavender { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
+      .btn-buy-lavender, .btn-buy-sky { padding: 14px 24px; font-size: .95rem; width: 100%; min-width: 0; }
 
       .coming-card, .app-card { padding: 22px 20px; }
       .coming-action, .app-action { width: 100%; justify-content: center; }
 
       .about-card { padding: 22px; }
-      
-      /* Roadmap di HP */
       .roadmap { font-size: .82rem; align-items: flex-start; gap: 10px; }
     }
 
@@ -918,6 +1050,7 @@
     .coming-card { animation: fadeUp .5s ease both; animation-delay: .05s; }
     .app-card { animation: fadeUp .5s ease both; animation-delay: .1s; }
     .reflective-card { animation: fadeUp .6s ease both; animation-delay: .1s; }
+    .audio-card { animation: fadeUp .6s ease both; animation-delay: .1s; }
 
     /* Animasi Tombol Bernapas */
     @keyframes breathe-glow {
@@ -1024,7 +1157,6 @@
             <li>Bisa diakses di semua perangkat (HP, tablet, laptop)</li>
           </ul>
 
-          <!-- Revisi Struktur Harga Ruang Jeda -->
           <div class="price-block">
             <div class="price-row">
               <span class="price-old">Rp 350.000</span>
@@ -1067,7 +1199,7 @@
     </div>
   </section>
 
-  <!-- ============ KARTU REFLEKTIF (NEW PRODUCT) ============ -->
+  <!-- ============ KARTU REFLEKTIF (LAVENDER) ============ -->
   <section class="section" id="kartu-reflektif">
     <div class="container">
       <div class="section-head">
@@ -1080,7 +1212,6 @@
       <article class="reflective-card">
         <div class="reflective-cover">
           <div class="reflective-cover-inner">
-            <!-- Memanggil gambar sampul wallpaper.png -->
             <img src="wallpaper.png" alt="Sampul 52 Wallpaper Pengingat Diri - Mindful Affirmations" class="reflective-book-cover" />
           </div>
         </div>
@@ -1104,14 +1235,12 @@
             <li><strong>Semua Orang</strong> — yang ingin mengenal diri, membangun kesadaran.</li>
           </ul>
 
-          <!-- Revisi Struktur Harga Kartu Reflektif -->
           <div class="price-block" style="background: linear-gradient(135deg, var(--lavender-soft), #ffffff); border-color: var(--lavender);">
             <div class="price-row">
               <span class="price-old">Rp 25.000</span>
               <span class="price-new" style="color: var(--lavender-deep);">Rp 10.000</span>
               <span class="price-badge" style="background: linear-gradient(135deg, var(--lavender), var(--lavender-deep)); box-shadow: 0 4px 10px rgba(109, 40, 217, 0.3);">Hemat 60%</span>
             </div>
-            <!-- (Teks catatan kosong untuk produk ini, Anda bisa isi jika perlu) -->
           </div>
 
           <div class="featured-actions">
@@ -1126,15 +1255,90 @@
             </a>
           </div>
 
-          <!-- Bagian Micro Trust (Siap Pakai & Gambar) -->
           <div class="micro-trust">
             <span>Siap Pakai</span>
             <span>Gambar Jernih QHD 2K</span>
           </div>
           
-          <!-- Teks "Terkadang..." dipisah agar tidak dapat centang -->
           <p class="no-check" style="font-size: 0.78rem; color: var(--muted); margin-top: 8px; line-height: 1.4;">
             <b>Terkadang, satu kalimat sederhana bisa menjadi pengingat yang bermakna.</b>
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ AUDIO: SEHARI SADAR (SKY BLUE) ============ -->
+  <section class="section" id="audio-sehari-sadar">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2><span class="dot" style="background: var(--sky); box-shadow: 0 0 0 4px var(--sky-soft);"></span>Audio Mindfulness Harian</h2>
+          <p>6 Audio Jeda 3 Menit untuk Kembali ke Diri (Pagi hingga Malam).</p>
+        </div>
+      </div>
+
+      <article class="audio-card">
+        <div class="audio-cover">
+          <div class="audio-cover-inner">
+            <img src="cover-sehari-sadar.png" alt="Sampul Audio Sehari Sadar" class="audio-book-cover" />
+          </div>
+        </div>
+
+        <div class="audio-body">
+          <div class="featured-tags">
+            <span class="pill sky">🎧 Audio Panduan</span>
+            <span class="pill sky">Mood Booster</span>
+          </div>
+
+          <h3>Sehari Sadar</h3>
+          <p>
+            <b>Sehari Sadar</b> bukan tentang menambahkan ritual baru ke harimu yang sudah penuh. Ini tentang menyisipkan enam jeda kecil — masing-masing tiga menit — agar kamu bisa bernapas, kembali ke tubuh, dan menjalani hari dengan lebih sadar. Dari napas pertama di pagi hari, hingga body scan yang menidurkanmu di malam hari.
+          </p>
+
+          <div class="audio-schedule">
+            <div class="audio-item"><strong>🌅 05.30</strong> Napas Pertama</div>
+            <div class="audio-item"><strong>☀️ 09.00</strong> Jeda Pagi</div>
+            <div class="audio-item"><strong>🌤️ 12.00</strong> Jeda Siang</div>
+            <div class="audio-item"><strong>🌥️ 15.00</strong> Turunkan Beban</div>
+            <div class="audio-item"><strong>🌇 18.00</strong> Pulang ke Diri</div>
+            <div class="audio-item"><strong>🌙 21.00</strong> Body Scan</div>
+          </div>
+
+          <ul>
+            <li><strong>6 Audio Panduan</strong> — Total ±18 menit untuk satu hari yang utuh.</li>
+            <li><strong>Bonus PDF</strong> — Panduan "Cara Pakai Sehari Sadar".</li>
+            <li><strong>Berbasis Sains</strong> — Box breathing, grounding, reframing CBT, body scan.</li>
+            <li><strong>Tanpa Toxic Positivity</strong> — Dirancang untuk orang sibuk, tanpa memaksa.</li>
+          </ul>
+
+          <div class="price-block" style="background: linear-gradient(135deg, var(--sky-soft), #ffffff); border-color: var(--sky);">
+            <div class="price-row">
+              <span class="price-old">Rp 75.000</span>
+              <span class="price-new" style="color: var(--sky-deep);">Rp 20.000</span>
+              <span class="price-badge" style="background: linear-gradient(135deg, var(--sky), var(--sky-deep)); box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);">Hemat 73%</span>
+            </div>
+          </div>
+
+          <div class="featured-actions">
+            <a class="btn-buy-sky"
+               href="mailto:admin.hidupselaras@gmail.com?subject=Pembelian%20Sehari%20Sadar%20-%20Rp%2020.000&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20ingin%20membeli%20Sehari%20Sadar%20(6%20Audio%20Jeda).%0A%0ANama%3A%20%0AEmail%3A%20%0AMetode%20pembayaran%3A%20%28QRIS%2FGoPay%2FOVO%2FTransfer%29%0A%0ATerima%20kasih.">
+              Dapatkan Sehari Sadar — Rp 20.000
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="micro-trust">
+            <span>File Audio Siap Pakai</span>
+            <span>Akses dari Semua Perangkat</span>
+          </div>
+          
+          <p class="no-check" style="font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-height: 1.4;">
+            <b>Kamu tidak perlu mengubah seluruh hidupmu hari ini. Cukup tiga menit. Satu napas. Satu jeda.</b>
           </p>
         </div>
       </article>
@@ -1148,42 +1352,8 @@
              href="mailto:admin.hidupselaras@gmail.com?subject=Tanya%20Info%20Bimbingan%20Privat%20-%20Sejati%20Store&body=Halo%20Sejati%20Store%2C%0A%0ASaya%20tertarik%20dengan%20Bimbingan%20Privat%20(1-on-1).%20Bisa%20info%20ketersediaan%20jadwal%20dan%20investasinya%3F%0A%0ANama%3A%20%0AKondisi%20saat%20ini%3A%20%0A%0ATerima%20kasih.">
              [Bimbingan Privat] </a>
           <span class="sep">·</span>
-          <span class="normal-link">Audio Afirmasi</span>
-          <span class="sep">·</span>
           <span class="normal-link">Jurnal Refleksi</span>
         </div>
-      </div>
-      
-    </div>
-  </section>
-
-  <!-- ============ SEGERA HADIR: AUDIO AFIRMASI ============ -->
-  <section class="section" id="segera">
-    <div class="container">
-
-      <div class="section-head">
-        <div>
-          <h2><span class="dot"></span>Segera Hadir</h2>
-          <p>Sedang disiapkan untuk melengkapi perjalanan Anda.</p>
-        </div>
-      </div>
-
-      <div class="coming-card">
-        <div class="coming-icon" aria-hidden="true">🎧</div>
-        <div class="coming-body">
-          <h3>
-            Audio Afirmasi
-            <span class="pill sun">Segera Hadir</span>
-          </h3>
-          <p>
-            Rangkaian audio afirmasi pagi–malam untuk menemani jeda harian Anda.
-            Ingin jadi yang pertama tahu saat rilis?
-          </p>
-        </div>
-        <!-- Perbaikan Typo Email -->
-        <a class="coming-action" href="mailto:admin.hidupselaras@gmail.com">
-          Kabari Saya
-        </a>
       </div>
 
     </div>
@@ -1259,7 +1429,6 @@
       <p>© 2026 Sejati Store · Media Digital Pejalan Spiritual</p>
       <div class="footer-links">
         <a href="mailto:admin.hidupselaras@gmail.com">Email</a>
-        <!-- SILAKAN GANTI 6281234567890 DENGAN NOMOR WHATSAPP ANDA -->
         <a href="https://wa.me/6281334081979?text=Halo%20Sejati%20Store%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a href="https://www.tiktok.com/@dirisejati.id"
            target="_blank" rel="noopener noreferrer">TikTok</a>
